@@ -7,7 +7,10 @@ authors = [
     { name = "PrabhatK", email = "kthapa7000@gmail.com" }
 ]
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "fastapi>=0.143.0",
+    "uvicorn[standard]>=0.54.0",
+]
 
 [project.scripts]
 bookly-fastapi = "bookly_fastapi:main"
