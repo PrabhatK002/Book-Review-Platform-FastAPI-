@@ -16,8 +16,8 @@ from sqlalchemy import (
 from sqlalchemy.dialects.postgresql import UUID, TSVECTOR
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 from sqlalchemy.schema import FetchedValue
-from bookly_fastapi.authors.models import Author
-from bookly_fastapi.reviews.models import Review
+from src.bookly_fastapi.authors.models import Author
+from src.bookly_fastapi.reviews.models import Review
 from src.bookly_fastapi.db.main import Base
 from src.bookly_fastapi.core.enums import CatalogStatus
 
@@ -85,10 +85,6 @@ class Book(Base):
         server_default="1",
     )
 
-    search_document: Mapped[str | None] = mapped_column(
-        TSVECTOR,
-        nullable=True,
-    )
 
     author_links: Mapped[list["BookAuthor"]] = relationship(
         "BookAuthor",

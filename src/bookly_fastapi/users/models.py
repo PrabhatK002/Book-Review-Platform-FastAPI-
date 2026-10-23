@@ -10,7 +10,7 @@ from sqlalchemy import (
 )
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from bookly_fastapi.reviews.models import Review
+from src.bookly_fastapi.reviews.models import Review
 from src.bookly_fastapi.db.main import Base
 from src.bookly_fastapi.core.enums import UserRole, UserStatus
 

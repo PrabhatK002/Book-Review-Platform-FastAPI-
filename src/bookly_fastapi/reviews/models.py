@@ -15,6 +15,8 @@ from sqlalchemy import (
 
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
+#from src.bookly_fastapi.books.models import Book
+#from bookly_fastapi.users.models import User
 from src.bookly_fastapi.db.main import Base
 from src.bookly_fastapi.core.enums import ReviewStatus
 

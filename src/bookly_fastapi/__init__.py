@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from src.bookly_fastapi.books.routes import book_router
-
+from src.bookly_fastapi.users.routes import user_router
 
 app = FastAPI(
     title="Book Review Platform",
@@ -8,4 +8,5 @@ app = FastAPI(
 )
 
 
-app.include_router(book_router, prefix = "/api/v1/books", tags=['books'])
+app.include_router(book_router, prefix = "/api/books", tags=['books'])
+app.include_router(user_router, prefix="/api/users", tags=['users'])
