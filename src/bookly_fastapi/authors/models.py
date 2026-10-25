@@ -13,7 +13,7 @@ from sqlalchemy import (
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from src.bookly_fastapi.db.main import Base
 from src.bookly_fastapi.core.enums import CatalogStatus
-from src.bookly_fastapi.books.models import BookAuthor
+#from src.bookly_fastapi.books.models import BookAuthor
 
 
 class Author(Base):

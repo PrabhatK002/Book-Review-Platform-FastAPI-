@@ -6,7 +6,7 @@ from pydantic import BaseModel, Field, ConfigDict, model_validator
 class ReviewCreate(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
-    book_id = int
+    book_id : int
 
     rating: int = Field(strict=True, ge=1, le=5)
 
@@ -81,4 +81,4 @@ class ReviewRead(BaseModel):
     updated_at: datetime
 
 
-q
+

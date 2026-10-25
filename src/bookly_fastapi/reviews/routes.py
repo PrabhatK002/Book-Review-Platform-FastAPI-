@@ -4,7 +4,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from bookly_fastapi.core.enums import ReviewStatus
+from src.bookly_fastapi.core.enums import ReviewStatus
 from src.bookly_fastapi.db.main import get_db
 from src.bookly_fastapi.dependencies.auth import CurrentUser
 from src.bookly_fastapi.reviews.models import Review
@@ -72,6 +72,26 @@ async def get_review(
         )
 
     return review
+
+
+
+@review_router.get(
+    "/get_all_reviews",
+    response_model=list[ReviewRead],
+    status_code=status.HTTP_200_OK,
+)
+async def get_reviews(
+    db: Annotated[AsyncSession, Depends(get_db)],
+):
+    result = await db.execute(
+        select(Review).where(
+            Review.status == ReviewStatus.PUBLISHED.value
+        )
+    )
+
+    reviews = result.scalars().all()
+
+    return reviews
 
 
 
